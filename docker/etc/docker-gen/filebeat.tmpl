@@ -27,4 +27,7 @@ output:
       {{ range $index, $value := split .Env.LOGSTASH_HOSTS "," }}
       - {{ trim $value }}
       {{ end }}
+    ssl:
+      certificate_authorities:
+        - /etc/pki/tls/certs/logstash-beats.crt
 logging.level: warning
